@@ -41,3 +41,16 @@ Agora, é hora de nosso primeiro código React!
 Vamos exibir uma mensagem simples como um título:
 O código encontra o div do contêiner e adiciona o cabeçalho h1 a ele.
 Não se preocupe com a nova sintaxe. Abordaremos isso nas próximas lições.
+
+Estrutura do Projeto
+
+
+Vamos explorar a estrutura do nosso projeto abrindo-o usando um editor de código.
+Estaremos usando o Visual Studio Code em nosso exemplo, mas você está livre para usar qualquer editor de código.contentImageA pasta pública contém arquivos relacionados a como o aplicativo será exibido no cliente, o mais importante deles sendo index.html , que é o modelo HTML de nossa página:contentImageA pasta src contém todos os arquivos JavaScript, CSS e de imagem que será compilado em um arquivo de pacote e injetado em index.html Como o React é compilado em um arquivo de pacote? Ele usa o que é chamado de "carregador de arquivos". No caso de Create React App, Webpack é usado.contentImage
+
+Webpack cria um arquivo "pacote" contendo o conteúdo de vários arquivos que precisam ser "agrupados" e tudo é adicionado em um único arquivo. Em vez de fazer o arquivo HTML procurar vários arquivos, o que pode diminuir o tempo de carregamento tremendamente, ele só precisa encontrar um arquivo.
+Lembre-se de que todos os arquivos CSS e JS precisam ser adicionados à pasta src , caso contrário, o webpack não os verá.
+Embora existam outros arquivos na pasta src que vêm com Create React App quando ele é gerado, os dois arquivos abaixo são os únicos arquivos críticos:
+• index.js : este arquivo é o ponto de entrada em nosso aplicativo. Em nosso código, um método chamado ReactDOM.render () é usado para encontrar um elemento com id = "root" no HTML e adicionar nosso aplicativo React dentro desse elemento (semelhante à lição anterior).
+• App.js : este arquivo é o principal componente que será renderizado para o DOM, que atualmente inclui a imagem do logotipo React e o texto padrão, que vemos na saída.
+Aprenderemos sobre os componentes nas próximas lições.
