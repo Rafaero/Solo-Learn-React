@@ -27,3 +27,17 @@ React permite que os desenvolvedores agrupem códigos relacionados, tornando a c
 **O Support** React tem uma comunidade incrivelmente grande e é de código aberto. É mantido pelo Facebook e pela comunidade.
 
 Vamos começar e mergulhar na construção de nosso primeiro aplicativo React!
+
+Adicionando React
+
+
+Depois de adicionar as tags de script necessárias, podemos começar a construir nosso aplicativo React! Primeiro, precisamos adicionar a biblioteca React como duas tags de script no cabeçalho do nosso documento HTML:
+
+Adicionamos um contêiner, que será usado para exibir algo usando React.
+<div id = "container"> </div>
+HTML
+Você pode usar qualquer id para o seu contêiner. Ele será usado pelo React para localizar o contêiner e adicionar conteúdo a ele.
+Agora, é hora de nosso primeiro código React!
+Vamos exibir uma mensagem simples como um título:
+O código encontra o div do contêiner e adiciona o cabeçalho h1 a ele.
+Não se preocupe com a nova sintaxe. Abordaremos isso nas próximas lições.
