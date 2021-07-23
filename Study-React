@@ -1,0 +1,29 @@
+# **O que é desenvolvimento front-end?**
+
+**O desenvolvimento de front-end**
+
+refere-se ao que o usuário final (também comumente referido como "
+
+**cliente**
+
+") pode ver. Nas formas mais básicas, o desenvolvimento front-end consiste em HTML, CSS e JavaScript.
+
+Como desenvolvedor, você descobrirá que é muito fácil para o seu front-end (site, aplicativo da web, etc.) se tornar muito complexo e ter várias partes móveis diferentes. Isso torna a solução de problemas muito mais difícil quando você precisa passar por um labirinto de código para encontrar o problema. Eventualmente, os desenvolvedores decidiram que deveria haver uma maneira melhor de gerenciar todo esse código, então eles criaram bibliotecas que poderiam tornar a vida mais fácil. **React** era uma dessas bibliotecas.
+
+O React foi criado pelo Facebook e lançado ao público em maio de 2013 e tem sido mantido de forma consistente desde então.
+
+**React**
+
+é uma das bibliotecas JavaScript mais populares para aplicativos da web front-end.
+
+Aqui estão algumas das vantagens do React: Os sites da **Speed** Interactive precisam atualizar o DOM (Document Object Model) cada vez que ocorre uma alteração. Esse processo geralmente é lento e cheio de recursos. Em comparação com outras bibliotecas que manipulam o DOM, o React usa um **DOM virtual** , permitindo atualizar apenas as partes do site que foram alteradas. Isso aumenta drasticamente a velocidade das atualizações, pois os aplicativos da web modernos podem conter milhares de elementos.
+
+Aprenderemos mais sobre o **DOM Virtual** nas próximas lições.
+
+**Facilidade de uso O**
+
+React permite que os desenvolvedores agrupem códigos relacionados, tornando a construção e manutenção de aplicativos em grande escala muito menos complexos.
+
+**O Support** React tem uma comunidade incrivelmente grande e é de código aberto. É mantido pelo Facebook e pela comunidade.
+
+Vamos começar e mergulhar na construção de nosso primeiro aplicativo React!
