@@ -54,3 +54,80 @@ Embora existam outros arquivos na pasta src que vêm com Create React App quando
 • index.js : este arquivo é o ponto de entrada em nosso aplicativo. Em nosso código, um método chamado ReactDOM.render () é usado para encontrar um elemento com id = "root" no HTML e adicionar nosso aplicativo React dentro desse elemento (semelhante à lição anterior).
 • App.js : este arquivo é o principal componente que será renderizado para o DOM, que atualmente inclui a imagem do logotipo React e o texto padrão, que vemos na saída.
 Aprenderemos sobre os componentes nas próximas lições.
+
+# **O que é JSX?**
+
+No módulo anterior, usamos o seguinte código para mostrar uma saída usando React:
+
+ReactDOM.render (
+   <h1> Olá, React! </h1>,
+   document.getElementById ('root')
+ );
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/hello-react-example?file)**
+
+Vamos começar a **[analisar](https://stackblitz.com/edit/hello-react-example?file)** o código e entender cada parte dele. Começaremos com o elemento **<h1> Hello, React! </h1>** . Como você pode ver, o elemento não está entre aspas para representar uma string. É como um elemento HTML, mas o usamos direto no código JavaScript! Isso é chamado de **JSX** e é uma extensão de sintaxe para JavaScript. Isso nos permite construir elementos de interface do usuário diretamente no código JavaScript!
+
+O React não requer o uso de JSX, no entanto, é prática comum na comunidade React usar JSX, pois facilita o desenvolvimento de interfaces de usuário, bem como permite que o React mostre mensagens úteis de erro e aviso.
+
+# **Introdução ao JSX**
+
+Vamos dar uma olhada em nosso código novamente:
+
+ReactDOM.render (
+   <h1> Olá, React! </h1>,
+   document.getElementById ('root')
+ );
+
+**JSX**
+
+O código chama o
+
+método de
+
+**renderização**
+
+do React
+
+e passa dois argumentos, um elemento JSX e um contêiner. O
+
+método
+
+**render**
+
+exibe o elemento fornecido no contêiner, que, em nosso caso, é o elemento HTML com
+
+**id = "root"**
+
+.
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/hello-react-example?file)**
+
+Quando você chama o método **render** , qualquer conteúdo existente do contêiner é substituído. É por isso que, normalmente, os containers estão vazios no HTML.
+
+Podemos usar qualquer expressão JavaScript dentro de JSX usando chaves.
+
+**Por exemplo:**
+
+nome const = "David";
+const el = <p> Olá, **{nome}** </p>;
+ReactDOM.render (
+   el,
+   document.getElementById ('root')
+ );
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-jsx-expressions-example?file)**
+
+No exemplo acima, usamos o
+
+**nome**
+
+da variável
+
+no elemento JSX.
+
+Como você pode ver, JSX pode ser usado como expressões JavaScript. Você pode atribuir uma expressão JSX a uma variável, retorná-la de uma função, etc.
