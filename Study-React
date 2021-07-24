@@ -179,3 +179,80 @@ função show () {
 Usamos **setInterval** para chamar afunção **show a** cada segundo e renderizar o elemento contador na página. Um dos grandes recursos do React é que ele atualiza apenas os elementos que precisam de uma atualização. Você pode inspecionar a saída HTML do exemplo acima e ver que apenas o texto do parágrafo é atualizado a cada segundo.
 
 Na prática, a maioria dos aplicativos React chama **ReactDOM.render ()** uma vez.Aprenderemos como atualizar elementos sem chamar o método **render** nas próximas lições.
+
+# **DOM Virtual**
+
+Aprendemos na parte anterior que o React atualiza apenas os elementos que são necessários.
+
+Isso permite que os aplicativos React sejam muito mais rápidos do que os aplicativos desenvolvidos com outras tecnologias de front-end.
+
+Mas como o React consegue isso? O React usa um **DOM Virtual** , que é uma representação leve do DOM. Quando um elemento é alterado, ele é primeiro atualizado no Virtual DOM. Esse processo é rápido, pois o DOM virtual é representado por objetos simples. Depois disso, o React compara o DOM virtual ao seu estado anterior e aplica apenas as atualizações do DOM necessárias para trazer o DOM ao estado desejado.
+
+**DOM** significa **D** ocument **O** bject **M** odelo e é uma árvore-como representação da página HTML.Confira nosso **[Tutorial de JavaScript](https://www.sololearn.com/learn/javascript/)** para aprender mais sobre DOM.
+
+# **Componentes**
+
+Os componentes permitem dividir a página em partes independentes e reutilizáveis.
+
+Vamos visualizar isso dando uma olhada em uma parte da página de Discussões do SoloLearn: Observe que a página pode ser dividida em várias partes. Cada uma dessas "partes" é um **componente** . O título é um componente, o botão "nova pergunta" é um componente e a barra de pesquisa é seu próprio componente. Isso torna a organização da página muito mais fácil, mas ainda mais importante, os componentes nos permitem, como desenvolvedores, separar as preocupações umas das outras.
+
+[https://api.sololearn.com/DownloadFile?id=3920](https://api.sololearn.com/DownloadFile?id=3920)
+
+**A separação de interesses** é um princípio de programação que estabelece que cada preocupação deve ser separada em partes individuais.Por exemplo, no diagrama acima, o botão "nova questão" (2) deve ser clicado se um usuário quiser adicionar uma nova questão, enquanto a barra de pesquisa (3) deve ser usada se o usuário quiser pesquisar as questões existentes.
+
+# **Componentes Funcionais**
+
+No React, existem dois tipos de componentes que você pode usar:
+
+**Componentes funcionais**
+
+e
+
+**Componentes de classe**
+
+.
+
+Nesta parte, falaremos sobre componentes funcionais.
+
+Um componente funcional é uma função JavaScript simples:
+
+função Hello () {
+   return <h1> Hello world. </h1>;
+}
+
+**JSX**
+
+O código acima definiu um componente funcional chamado
+
+**Hello**
+
+, que retorna um elemento React simples.
+
+Observe que o nome do componente funcional começa com uma **letra maiúscula** . Isso é absolutamente crítico. Se iniciarmos o nome de um componente com uma letra minúscula, o navegador tratará nosso componente como um elemento HTML normal em vez de um Componente.
+
+# **Componentes de renderização**
+
+Para exibir o componente, precisamos criar o elemento JSX correspondente.
+
+Por exemplo, para nosso componente definido pelo usuário **Hello** :
+
+const el = <Olá />;
+
+**JSX**
+
+Agora, podemos usar nosso elemento definido pelo usuário e renderizá-lo na página:
+
+função Hello () {
+   return <h1> Hello world. </h1>;
+}
+ const el = <Hello />; 
+ReactDOM.render (
+   el, 
+   document.getElementById ('root')
+ );
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-functional-components-example?file)**
+
+Lembre-se de que todos os nomes de componentes precisam começar com uma letra maiúscula.
