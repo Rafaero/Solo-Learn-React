@@ -131,3 +131,51 @@ da variável
 no elemento JSX.
 
 Como você pode ver, JSX pode ser usado como expressões JavaScript. Você pode atribuir uma expressão JSX a uma variável, retorná-la de uma função, etc.
+
+# **Atributos em JSX**
+
+Podemos especificar atributos usando aspas, assim como em HTML:
+
+<div **id = "name"** > </div>
+
+**JSX**
+
+Ao usar uma expressão JavaScript como valor de atributos, as aspas não devem ser usadas:
+
+<div **id = {user.id}** > </div>
+
+**JSX**
+
+O React DOM usa a convenção de nomenclatura de propriedade **camelCase** em vez de nomes de atributos HTML.Por exemplo, **class** se torna **className** em JSX.
+
+# **Como funciona o JSX?**
+
+Quando as expressões JSX são compiladas, elas são convertidas em
+
+**objetos**
+
+JavaScript
+
+, representando os elementos React.
+
+O React então usa esses elementos para construir o HTML DOM correspondente e exibi-lo no navegador.
+
+Vamos criar um aplicativo de contador, que incrementa uma variável de contador a cada segundo e a exibe na página como um parágrafo:
+
+deixe contador = 0;
+função show () {
+   contador ++;
+  const el = <p> {contador} </p>;
+  ReactDOM.render (
+     el, document.getElementById ('root')
+   );
+}
+ setInterval (show, 1000);
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-jsx-counter-example?file)**
+
+Usamos **setInterval** para chamar afunção **show a** cada segundo e renderizar o elemento contador na página. Um dos grandes recursos do React é que ele atualiza apenas os elementos que precisam de uma atualização. Você pode inspecionar a saída HTML do exemplo acima e ver que apenas o texto do parágrafo é atualizado a cada segundo.
+
+Na prática, a maioria dos aplicativos React chama **ReactDOM.render ()** uma vez.Aprenderemos como atualizar elementos sem chamar o método **render** nas próximas lições.
