@@ -256,3 +256,31 @@ ReactDOM.render (
 **[Experimente no StackBlitz](https://stackblitz.com/edit/react-functional-components-example?file)**
 
 Lembre-se de que todos os nomes de componentes precisam começar com uma letra maiúscula.
+
+# **Componentes de classe**
+
+**Os componentes de classe**
+
+são normalmente usados quando há interações do usuário mais avançadas, como formulários e animações.
+
+Todos os componentes da classe precisam estender a classe **React.Component** . Podemos reescrever nosso componente funcional **Hello** como um componente de classe:
+
+class Hello extends React.Component {
+   render () {
+     return <h1> Hello world. </h1>;
+  }
+ }
+
+**JSX**
+
+**[Experimente em StackBlitz](https://stackblitz.com/edit/react-class-component-example?file)**
+
+Class Os componentes precisam ter um
+
+método de
+
+**render**
+
+, que é responsável por dizer o que a página deve mostrar.
+
+Aprenderemos sobre os recursos e diferenças dos componentes funcionais e de classe nas próximas lições.
