@@ -284,3 +284,77 @@ método de
 , que é responsável por dizer o que a página deve mostrar.
 
 Aprenderemos sobre os recursos e diferenças dos componentes funcionais e de classe nas próximas lições.
+
+# **Adereços**
+
+Os componentes funcionais podem aceitar argumentos, semelhantes às funções JavaScript. Esses argumentos são chamados de
+
+**adereços**
+
+e representam um objeto.
+
+Por exemplo, podemos usar adereços em nosso componente Hello:
+
+função Hello ( **props** ) {
+   return <p> Olá, **{props.name}** ! </p>;
+}
+
+**JSX**
+
+Agora, podemos adicionar um
+
+atributo de
+
+**nome**
+
+ao nosso elemento:
+
+const el = <Hello **name = "David"** />;
+
+**JSX**
+
+O valor do atributo será passado para o componente quando renderizado.
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-functional-component-props-example?file)**
+
+Um elemento pode ter vários atributos personalizados, que serão passados para o componente usando o objeto **adereços** . Você pode usar qualquer nome personalizado para seus atributos.
+
+# **Componentes usando componentes**
+
+Os componentes podem usar outros componentes para gerar uma saída.
+
+**Por exemplo:**
+
+function App () {
+   return <div>
+     <Hello name = "David" />
+     <Hello name = "James" />
+     <Hello name = "Amy" />
+   </div>;
+}
+
+**JSX**
+
+Aqui, nosso
+
+componente
+
+**App**
+
+usa o
+
+componente
+
+**Hello**
+
+três vezes, cada vez com um novo
+
+atributo de
+
+**nome**
+
+.
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-functional-component-props-example-2?file)**
+
+Geralmente, é uma boa prática dividir componentes complexos em vários componentes menores, que são reutilizáveis.Por exemplo, um componente **Post** pode usar um componente **Avatar** , um componente **Image** , um componente **Date** , etc.
