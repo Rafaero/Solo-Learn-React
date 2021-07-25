@@ -536,3 +536,76 @@ classe Counter extends React.Component {
 O evento onClick chama afunção de **incremento** do nosso componente, que usa **setState** para alterar o valor do nosso contador. Quando o estado é alterado, o React dispara automaticamente uma nova renderização do componente. Toque em **Experimentar no StackBlitz** para ver o contador em ação!
 
 Observe que o manipulador de eventos usa a sintaxe camelCase e que a função do manipulador é passada entre chaves.Abordaremos os manipuladores de eventos com mais detalhes nas próximas lições.
+
+# **Adereços vs Estado**
+
+Para recapitular, aqui está um resumo das principais diferenças entre os
+
+**adereços**
+
+e o
+
+**estado**
+
+:
+
+- Usamos **adereçosestadosetState ()setState ()**
+
+    para passar dados aos componentes.
+
+    - Os componentes usam o
+
+    para gerenciar seus dados.
+
+    - Os adereços são somente leitura e não podem ser modificados.
+    - O estado pode ser modificado por seu componente usando o
+
+    método
+
+    .
+
+    - O
+
+    método
+
+    resulta em uma nova renderização do componente afetado.
+
+Os componentes que têm estado são chamados de **stateful** , enquanto os componentes que não usam state são chamados de **stateless** .
+
+# **Ganchos**
+
+A versão anterior do React permitia o uso de estado apenas com componentes de classe.
+
+Em iterações recentes do React, um novo recurso chamado
+
+**hooks**
+
+foi introduzido, permitindo usar o estado dentro de componentes funcionais.
+
+Primeiro, precisamos importar o gancho **useState** :
+
+import React, **{useState}** de ' **react** ';
+
+**JSX**
+
+**useState**
+
+retorna um par, o valor do estado atual e uma função, que permite alterar o estado.
+
+**useState**
+
+recebe um argumento, que é o valor inicial do estado.
+
+Vejamos um exemplo:
+
+função Hello () {
+ **const [name, setName] = useState ("David");**   return <h1> Hello {name}. </h1>;
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-hooks-initial-example?file)**
+
+No exemplo acima, criamos umavariável de estado de **nome** e umafunção **setName** . A sintaxe dos colchetes é chamada de **desestruturação da matriz** . Ele atribui avariável **name** ao valor do estado atual e **setName** à função que permite alterar o estado. Você pode nomear essas variáveis como quiser. Em seguida, passamos "David" como o valor inicial para nossa variável de nome para **useState ()** .
+
+Você pode criar várias variáveis de estado com seus métodos de conjunto correspondentes. Basta usar instruções separadas para cada variável usando o gancho useState.
