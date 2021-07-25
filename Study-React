@@ -358,3 +358,66 @@ atributo de
 **[Experimente no StackBlitz](https://stackblitz.com/edit/react-functional-component-props-example-2?file)**
 
 Geralmente, é uma boa prática dividir componentes complexos em vários componentes menores, que são reutilizáveis.Por exemplo, um componente **Post** pode usar um componente **Avatar** , um componente **Image** , um componente **Date** , etc.
+
+# **Acessórios em componentes de classe**
+
+Props podem ser acessados em componentes de classe usando
+
+**this.props**
+
+.
+
+**Por exemplo:**
+
+class Hello extends React.Component {
+   render () {
+     return <p> Hello, { **this.props.name** }! </p>;
+  }
+ }
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-class-component-props-example?file)**
+
+Uma coisa importante a considerar é que os adereços são somente leitura, o que significa que os componentes não podem modificar seus adereços.
+
+Os aplicativos interativos geralmente precisam alterar os dados e os elementos da página.Aprenderemos como alterar a saída de componentes usando o **estado** na próxima lição.
+
+# **Um exemplo**
+
+Agora que sabemos como criar componentes e passar dados a eles, vamos criar uma lista de compras.
+
+Cada item de nossa lista terá um **nome** e um **preço. Por exemplo:**
+
+<Nome do item = "Queijo" preço = "4,99" />
+
+**JSX**
+
+O
+
+componente
+
+**Item**
+
+renderizará um elemento div simples com os dados:
+
+item de função (props) {
+   return <div className = "item">
+   <b> Nome: </b> {props.name} <br />
+   <b> Preço: </b> {props.price}
+   </ div >;
+}
+
+**JSX**
+
+Agora podemos usar nosso componente e criar vários itens para nossa lista de compras:
+
+<Item name = "Cheese" price = "4.99" />
+ <Item name = "Bread" price = "1.5" />
+ <Item name = "Sorvete" price = "24" />
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-shopping-list-example?file)**
+
+Adicionamos alguns estilos CSS simples para separar os itens visualmente.Toque em **Experimentar no StackBlitz** para ver o resultado e brincar com o código.
