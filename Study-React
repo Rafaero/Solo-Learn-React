@@ -421,3 +421,118 @@ Agora podemos usar nosso componente e criar vários itens para nossa lista de co
 **[Experimente no StackBlitz](https://stackblitz.com/edit/react-shopping-list-example?file)**
 
 Adicionamos alguns estilos CSS simples para separar os itens visualmente.Toque em **Experimentar no StackBlitz** para ver o resultado e brincar com o código.
+
+# **Estado**
+
+Até este ponto, aprendemos como passar dados para componentes usando
+
+**adereços**
+
+.
+
+Muitos aplicativos da web precisam que seus componentes alterem seus dados, por exemplo, após a interação do usuário (clicar em um botão, enviar um formulário, etc.). No entanto, os **adereços** não podem ser alterados. Para permitir que os componentes gerenciem e alterem seus dados, o React fornece um recurso chamado **estado** . **Estado** é um objeto adicionado como uma propriedade nos componentes da classe. **Por exemplo:**
+
+class Hello extends React.Component {
+ **state = {
+     name: "James"
+   }**
+   render () {
+     return <h1> Hello { **this.state.name** }. </h1>;
+  }
+ }
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-state-initial-example?file)**
+
+Como você pode ver, o **estado** é apenas um objeto simples, que contém pares chave: valor. Semelhante aos adereços, os valores podem ser acessados usando **this.state** . Agora, quando o componente é renderizado, o estado é inicializado com o valor fornecido e haverá um título que diz "Hello James.". **[Experimente no StackBlitz](https://stackblitz.com/edit/react-state-initial-example?file)**
+
+O objeto de **estado** pode conter vários pares de chave: valor, separados por vírgulas.
+
+# **Estado de mudança**
+
+O estado não deve ser modificado diretamente. Em vez disso, o React fornece um
+
+método
+
+**setState ()**
+
+, que pode ser usado para modificar o estado.
+
+**Por exemplo:**
+
+**this.setState** ({ 
+   nome: "James",
+   idade: 25
+ });
+
+**JSX**
+
+Você precisa passar um objeto com os novos pares chave: valor para o
+
+método
+
+**setState**
+
+.
+
+Por que devemos usar **setState** , em vez de simplesmente alterar os valores das propriedades do objeto diretamente? A resposta revela um dos recursos mais úteis do React: quando **setState** é chamado, o React renderiza automaticamente o componente afetado com o novo estado! Normalmente, a mudança de estado ocorre em manipuladores de eventos. Veremos um exemplo na próxima parte!
+
+Quando o estado muda usando o método **setState** , o React é informado e imediatamente renderiza novamente o componente com o estado atualizado.
+
+# **App de contador**
+
+Para entender melhor como funciona o estado, vamos criar um aplicativo de contador, que incrementa o contador cada vez que um botão é clicado.
+
+Começamos criando nosso
+
+componente
+
+**Contador**
+
+, que inclui o contador e um botão:
+
+class Counter extends React.Component {
+   state = {
+     counter: 0
+   }
+   render () {
+     return <div>
+     <p> {this.state.counter} </p>
+     <button> Incremento </button>
+     </div>;
+  }
+ }
+
+**JSX**
+
+Inicializamos nosso
+
+**contador**
+
+com o valor 0 no estado.
+
+Agora, precisamos adicionar um manipulador de eventos de clique ao botão e incrementar o contador no estado. Aqui está o código final:
+
+classe Counter extends React.Component {
+   state = {
+     counter: 0
+   }
+   incremento = () => {
+ **this.setState ({
+      counter: this.state.counter + 1});**   }
+   render () {
+     return <div>
+     <p> {this.state.counter} </p>
+     <button **onClick = {this.increment}** > Incrementar </button>
+     </div>;
+  }
+ }
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-state-counter-example?file)**
+
+O evento onClick chama afunção de **incremento** do nosso componente, que usa **setState** para alterar o valor do nosso contador. Quando o estado é alterado, o React dispara automaticamente uma nova renderização do componente. Toque em **Experimentar no StackBlitz** para ver o contador em ação!
+
+Observe que o manipulador de eventos usa a sintaxe camelCase e que a função do manipulador é passada entre chaves.Abordaremos os manipuladores de eventos com mais detalhes nas próximas lições.
