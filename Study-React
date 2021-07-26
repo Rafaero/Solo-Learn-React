@@ -609,3 +609,48 @@ função Hello () {
 No exemplo acima, criamos umavariável de estado de **nome** e umafunção **setName** . A sintaxe dos colchetes é chamada de **desestruturação da matriz** . Ele atribui avariável **name** ao valor do estado atual e **setName** à função que permite alterar o estado. Você pode nomear essas variáveis como quiser. Em seguida, passamos "David" como o valor inicial para nossa variável de nome para **useState ()** .
 
 Você pode criar várias variáveis de estado com seus métodos de conjunto correspondentes. Basta usar instruções separadas para cada variável usando o gancho useState.
+
+# **App de contador usando ganchos**
+
+Agora podemos reescrever nosso aplicativo Counter da lição anterior usando um componente funcional e ganchos!
+
+**Aqui está o código:**
+
+função Counter () {
+   const [contador, setCounter] = useState (0);
+  incremento de função () {
+     setContador (contador + 1);
+  }
+   return <div>
+   <p> {counter} </p>
+   <button onClick = {incremento}>
+     Incremento
+   </button>
+   </div>;
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-hooks-counter-example?file)**
+
+Como você pode ver, em comparação com o componente da classe, o código é muito mais curto e fácil de ler e entender. Essa foi uma das razões pelas quais a equipe React criou os Hooks.
+
+Lembre-se de que os ganchos só podem ser usados dentro de componentes funcionais.Ganchos são funções que permitem "enganchar" recursos do React a partir de componentes de função.
+
+# **Métodos de Ciclo de Vida**
+
+O React fornece métodos de ciclo de vida especiais para componentes de classe, que são chamados quando os componentes são montados, atualizados ou desmontados.
+
+**A montagem** é o processo em que um componente é renderizado na página. **A desmontagem** é o processo em que um componente é removido da página. O método **componentDidMount** é chamado quando um componente é renderizado na página. Por exemplo, podemos usar **componentDidMount** em nosso aplicativo Contador para definir o valor inicial do contador:
+
+componentDidMount () {
+   this.setState ({contador: 42});
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-state-counter-mount-example?file)**
+
+Isso definirá um valor inicial do contador quando o componente for renderizado. **componentDidMount** é normalmente usado para preencher o estado dentro de um componente quando ele é inicialmente montado no DOM.
+
+Da mesma forma, o método de ciclo de vida **componentWillUnmount ()** é chamado logo antes de o componente ser removido do DOM. Ele pode ser usado para liberar recursos utilizados pelo componente.
