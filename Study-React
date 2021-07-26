@@ -717,3 +717,33 @@ função Counter () {
 Oevento **onClick** chama afunção de **incremento** , que está incrementando a variável de estado do contador.
 
 Confira o mesmo aplicativo Counter desenvolvido usando um componente de classe **[aqui](https://stackblitz.com/edit/react-state-counter-example?file)** .
+
+# **Manipulação de entrada do usuário**
+
+Uma das maneiras comuns de os usuários interagirem com as páginas da web é por meio de campos de texto.
+
+Podemos lidar com a entrada do usuário no React usando o evento **onChange** do campo de texto. Quando o valor do campo de texto muda, o manipulador de eventos é chamado, atualizando o valor do campo no estado do componente. Dessa forma, você sempre tem o valor real do campo de texto no estado. Vamos fazer um aplicativo para converter Km em Milhas. Pegaremos o valor Km de um campo de texto e calcularemos o valor das milhas após a entrada:
+
+função Converter () {
+   const [km, setKm] = useState (0);
+
+  função handleChange (e) {
+     setKm (e.target.value);
+  }
+   função convert (km) {
+     return (km / 1,609) .toFixed (2);
+  }
+   return <div>
+   <input type = "text" value = {km}
+ **onChange = {handleChange}** />
+   <p> {km} km é {convert (km)} milhas </p>
+   </div>;
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-km-miles-converter?file)**
+
+Nosso componente Converter inclui um campo de texto, que chama afunção **handleChange** quando seu valor muda. A função handleChange atualiza o estado com o valor atual do campo de texto, fazendo com que o componente seja novamente renderizado e mostre o valor de milhas correspondente, que é calculado usando afunção **converter** .
+
+O valor do campo de texto é acessado por meio do objeto **e** , que representa o evento React. Ele é passado para a função de manipulador de eventos como um argumento e pode ser usado para acessar o objeto de evento.
