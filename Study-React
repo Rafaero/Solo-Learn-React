@@ -830,3 +830,19 @@ Pegamos a matriz de entrada dos adereços de entrada, percorremos a matriz usand
 [https://api.sololearn.com/DownloadFile?id=4435](https://api.sololearn.com/DownloadFile?id=4435)
 
 Esse código resulta em um aviso, dizendo que cada elemento precisa de uma **chave** exclusiva . Veremos as **chaves** na próxima parte.
+
+Chaves
+
+
+Cada elemento em uma lista deve ter um atributo- chave .
+As chaves atuam como uma identidade única, identificando cada elemento.
+Normalmente, são IDs de seus dados ou podem ser índices gerados automaticamente. Por exemplo:
+
+const listItems = arr.map ((val, index) =>
+ 
+  <li key = {index} > {val} </li>
+ 
+);
+JSX
+Experimente no StackBlitz
+As chaves são importantes porque identificam os elementos de maneira única, ajudando o React a entender quais itens foram alterados, adicionados ou removidos.
