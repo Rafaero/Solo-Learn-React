@@ -654,3 +654,66 @@ componentDidMount () {
 Isso definirá um valor inicial do contador quando o componente for renderizado. **componentDidMount** é normalmente usado para preencher o estado dentro de um componente quando ele é inicialmente montado no DOM.
 
 Da mesma forma, o método de ciclo de vida **componentWillUnmount ()** é chamado logo antes de o componente ser removido do DOM. Ele pode ser usado para liberar recursos utilizados pelo componente.
+
+# **componentDidUpdate**
+
+Outro método de ciclo de vida é
+
+**componentDidUpdate ()**
+
+, que é chamado quando um componente é atualizado no DOM.
+
+Podemos, por exemplo, alertar o valor do contador atual quando ele é incrementado:
+
+componentDidUpdate () {
+   alert ("Número de cliques:" + this.state.counter);
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-state-counter-update-example?file)**
+
+**componentDidUpdate ()** só é chamado quando o componente é atualizado.
+
+Bom trabalho!
+
+# **Manipulação de eventos**
+
+O tratamento de eventos no React é muito semelhante ao tratamento de eventos no DOM.
+
+A única diferença é que os nomes dos eventos usam a sintaxe camelCase e o manipulador de eventos precisa ser passado entre chaves. **Por exemplo, para lidar com o evento de clique em um botão:**
+
+<button **onClick = {handleClick}** >
+   Meu botão
+ </button>
+
+**JSX**
+
+Clicar no botão irá chamar a
+
+função
+
+**handleClick**
+
+do componente.
+
+**Vamos explorar nosso aplicativo Counter:**
+
+função Counter () {
+   const [contador, setCounter] = useState (0);
+  incremento de função () {
+     setContador (contador + 1);
+  }
+   return <div>
+   <p> {counter} </p>
+   <button **onClick = {incremento}** > Incremento </button>
+   </div>;
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-hooks-counter-example?file)**
+
+Oevento **onClick** chama afunção de **incremento** , que está incrementando a variável de estado do contador.
+
+Confira o mesmo aplicativo Counter desenvolvido usando um componente de classe **[aqui](https://stackblitz.com/edit/react-state-counter-example?file)** .
