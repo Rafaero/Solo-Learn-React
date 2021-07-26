@@ -747,3 +747,86 @@ função Converter () {
 Nosso componente Converter inclui um campo de texto, que chama afunção **handleChange** quando seu valor muda. A função handleChange atualiza o estado com o valor atual do campo de texto, fazendo com que o componente seja novamente renderizado e mostre o valor de milhas correspondente, que é calculado usando afunção **converter** .
 
 O valor do campo de texto é acessado por meio do objeto **e** , que representa o evento React. Ele é passado para a função de manipulador de eventos como um argumento e pode ser usado para acessar o objeto de evento.
+
+# **Formulários**
+
+Na parte anterior, aprendemos como lidar com a entrada do usuário em campos de texto. Os campos de texto geralmente fazem parte de um formulário.
+
+Semelhante ao exemplo anterior, os elementos do formulário React mantêm seu estado e o atualizam com base na entrada do usuário. Assim você sempre terá os dados do seu formulário à sua disposição no estado. Para demonstrar isso, criaremos um formulário, que adicionará números toda vez que o formulário for enviado e exibirá a soma. Nosso formulário contém um campo de entrada e um botão de envio:
+
+função AddForm () {
+   const [sum, setSum] = useState (0);
+  const [num, setNum] = useState (0);
+  função handleChange (e) {
+     setNum (e.target.value);
+  }
+   function handleSubmit (e) {
+     setSum (sum + Number (num));
+    e.preventDefault ();
+  }
+   return <form **onSubmit = {handleSubmit}** >
+   <input type = "number" value = {num} o**nChange = {handleChange}** />
+   <input type = "submit" value = "Add" />
+   <p> A soma é { soma } </p>
+   </form>;
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-simple-calc-form-example?file)**
+
+No código acima, o valor da entrada é controlado pelo React (mantemos o valor no estado). Quando o formulário é enviado usando o botão de envio, a função **handleSubmit** é chamada, o que atualiza o valor de **sum** no estado. Um elemento de formulário de entrada cujo valor é controlado pelo React dessa forma é chamado de " **componente controlado** ".
+
+Observe o **e.preventDefault ();** demonstração. Essa instrução evita o comportamento padrão do formulário, que, por padrão, recarrega a página quando é enviado. Em JavaScript, usaríamos **return false;** para isso, mas no React precisamos chamar **preventDefault ()** .
+
+# **Listas**
+
+Os aplicativos da Web geralmente contêm elementos repetidos, como listas ou seções, em que o mesmo elemento DOM é repetido com um conjunto de dados diferente.
+
+Considere uma matriz de strings:
+
+const arr = ["A", "B", "C"];
+
+**JSX**
+
+Precisamos renderizar um elemento de lista <li> para cada item do array.
+
+Podemos definir um
+
+componente
+
+**MyList**
+
+e passá-lo a matriz como um prop usando um
+
+atributo de
+
+**dados**
+
+personalizado
+
+:
+
+<Dados MyList = {arr} />
+
+**JSX**
+
+Agora, quando a matriz está acessível por meio de adereços, podemos escrever a lógica do componente:
+
+função MyList (props) {
+   const arr = props.data;
+  const listItems = arr.map ((val) =>
+     <li> {val} </li>
+   );
+  return <ul> {listItems} </ul>;
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-simple-list-example?file)**
+
+Pegamos a matriz de entrada dos adereços de entrada, percorremos a matriz usando afunção de **mapa** JavaScripte retornamos um elemento <li> para cada item. O array resultante é armazenado navariável **listItems** . Em seguida, o componente retorna o array listItems dentro de uma tag <ul>. **O resultado:**
+
+[https://api.sololearn.com/DownloadFile?id=4435](https://api.sololearn.com/DownloadFile?id=4435)
+
+Esse código resulta em um aviso, dizendo que cada elemento precisa de uma **chave** exclusiva . Veremos as **chaves** na próxima parte.
