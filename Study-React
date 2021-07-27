@@ -1079,3 +1079,58 @@ No Redux, o estado da aplicação é armazenado como um objeto simples, denomina
 **JS**
 
 Você não pode alterar o estado diretamente. Em vez disso, você precisa **despachar uma ação** .Toque em **Continuar** para saber mais!
+
+# **Ações e redutores**
+
+Uma
+
+**ação**
+
+é apenas um objeto JavaScript simples:
+
+{ 
+   tipo: 'ADD_CONTACT', 
+   nome: 'James' 
+ }
+
+**JS**
+
+O código acima define uma ação do
+
+**tipo**
+
+ADD_CONTACT e uma
+
+propriedade de
+
+**nome**
+
+.
+
+Uma ação descreve claramente por que a mudança de estado aconteceu e pode ser enviada de qualquer lugar em seu aplicativo. Neste ponto, temos apenas um armazenamento, que inclui nossos dados de estado e um objeto, que inclui alguns dados que precisam ser alterados no estado. Então, como realmente fazemos a mudança? Para amarrar o armazenamento e a ação juntos, precisamos escrever uma função, chamada de **redutor** . Ele assume o estado e a ação como argumentos e retorna o próximo estado do aplicativo. **Por exemplo:**
+
+função contactsApp (estado, ação) {
+   if (action.type === 'ADD_CONTACT') {
+     return [... state, action.name]
+   } else {
+     return state
+   }
+ }
+
+**JS**
+
+O código acima define uma função redutora simples, que verifica a ação e retorna o novo estado.
+
+Esses conceitos são basicamente a ideia do Redux: você mantém o estado global em uma **loja** , define **ações** para descrever o que mudar na loja e escreve funções **redutoras** para lidar com essas ações.
+
+Observe, não tocamos em nenhuma sintaxe específica do React, todas as opções acima são JavaScript simples.
+
+# **Conceitos Básicos**
+
+Redux pode ser descrito usando os seguintes princípios:
+
+O estado global do aplicativo é armazenado em um único . Você pode alterar o estado apenas por despacho . Ações são objetos que contêm informações sobre o que deve ser alterado. Redutores são funções que tratam das ações e retornam o próximo estado do aplicativo. Os redutores precisam ser , o que significa que não podem modificar o estado, eles precisam retornar um novo objeto de estado.
+
+**Fonte única de**
+
+**armazenamento da verdade O estado é de ações somente leitura. Redutores puros, puros**
