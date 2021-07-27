@@ -1021,3 +1021,61 @@ function AddPersonForm (props) {
 **[Experimente no StackBlitz](https://stackblitz.com/edit/react-contact-manager-3?file)**
 
 Também **limpamos** o valor do campo de texto usando **setPerson ('')** após adicionar uma nova pessoa.
+
+
+# **Resumo**
+
+Uma lição importante desta lição é que os
+
+**adereços**
+
+podem ser usados para transmitir não apenas o estado, mas também as funções que podem manipular o estado.
+
+Dessa forma, podemos armazenar o estado do aplicativo no pai e permitir que seus componentes filhos usem e manipulem o estado.
+
+Agora, quando nosso aplicativo estiver totalmente funcional, podemos adicionar alguns estilos CSS e uma verificação, para evitar a criação de contatos em branco. **[Experimente no StackBlitz](https://stackblitz.com/edit/react-contact-manager-4)**
+
+Explore o projeto, tente modificar o código e adicionar atributos aos nossos contatos, como idade, localização, número de telefone.**Personalize sua lista de contatos e compartilhe sua criação nos comentários abaixo!**
+
+# **Gestão Estadual**
+
+No módulo anterior, construímos um
+
+aplicativo
+
+**Contact Manager**
+
+, que armazena o estado no componente pai e o transmite aos componentes filhos correspondentes.
+
+No mundo real, com aplicativos em maior escala, isso pode se tornar muito mais complexo. Podemos ter que passar os dados de estado múltiplos níveis para chegar ao componente desejado. Ter que passar os dados para vários níveis de componentes aninhados tornaria difícil entender o que causou uma mudança no estado, pois pode haver vários componentes potenciais que podem alterar o estado. Isso também causaria muito código redundante, dificultando a manutenção e depuração do código.
+
+Toque em **Continuar** para ver como podemos superar esses desafios.
+
+# **Apresentando Redux**
+
+**Redux**
+
+foi criado para tornar o gerenciamento de estado previsível, fornecendo um único contêiner de estado e regras rígidas sobre como o estado pode ser alterado.
+
+**Redux** é uma pequena biblioteca JavaScript e pode ser usada com qualquer framework de front-end, como React, Angular, jQuery. Ele emprega o padrão de " **fonte única de verdade** ". Resumindo, **fonte única de verdade** se refere apenas a realocar o estado do aplicativo e toda a lógica associada fora do aplicativo, permitindo que QUALQUER componente acesse os dados de que precisa.
+
+Ter um único contêiner de estado facilita o gerenciamento do estado de seu aplicativo, pois você pode acessar e alterar os dados de qualquer componente que precise, sem ter que passar os dados.
+
+# **Armazenar**
+
+Vamos examinar os principais conceitos do Redux.
+
+No Redux, o estado da aplicação é armazenado como um objeto simples, denominado **store** . Deve haver apenas uma única loja em um aplicativo. Por exemplo, uma loja pode ser assim:
+
+{
+   contatos: [{
+     nome: 'David'
+   }, {
+     nome: 'Amy'
+   }],
+   alternar: verdadeiro
+ }
+
+**JS**
+
+Você não pode alterar o estado diretamente. Em vez disso, você precisa **despachar uma ação** .Toque em **Continuar** para saber mais!
