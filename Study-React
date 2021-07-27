@@ -911,3 +911,113 @@ const el = (
 Toque em **Experimente no StackBlitz** para ver o resultado.
 
 Adicionar um novo contato não funciona, pois ainda não construímos a lógica na função **handleSubmit** .
+
+# **Estado de Compartilhamento**
+
+No momento, nosso
+
+**AddPersonForm**
+
+mantém seu estado de forma independente. Como podemos adicionar um novo contato à nossa
+
+**PeopleList**
+
+então, quando o formulário for enviado?
+
+Para fazer isso, precisamos compartilhar o estado entre os componentes. Podemos fazer isso **elevando o estado** a um componente pai. Isso significa que o componente pai conterá os dados que precisam ser compartilhados entre os componentes. No nosso caso, é a lista de contatos. Vamos criar um componente pai chamado **ContactManager** , que inclui **AddPersonForm** e **PeopleList** como componentes filho e mantém a lista de contatos em seu estado:
+
+função ContactManager (props) {
+   const [contacts, setContacts] = useState (props.data);
+  return (
+     <div>
+       <AddPersonForm />
+       <PeopleList data = {contacts} />
+     </div>
+   );
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-contact-manager-2?file)**
+
+O componente ContactManager recebe a lista de contatos inicial usando props, salva-a em seu estado. Em seguida, ele passa a lista de contatos para seu componente filho.
+
+Os dados podem ser passados do pai para o filho, mas não do filho para o pai. O React usa o que é chamado de **fluxo de dados unidirecional** , em outras palavras, os dados fluem apenas para baixo, por assim dizer.
+
+# **Adicionar um contato**
+
+Agora, podemos criar uma
+
+função
+
+**addPerson ()**
+
+para nosso componente ContactManager para adicionar uma nova pessoa à nossa matriz de estado de contatos:
+
+função ContactManager (props) {
+   const [contacts, setContacts] = useState (props.data);
+**função addPerson (nome) {
+     setContacts ([... contatos, nome]);
+  }** ...
+ }
+
+**JSX**
+
+Mas como vamos chamar essa função de nosso componente filho AddPersonForm, onde os dados da nova pessoa são armazenados?
+
+Assim como passamos dados usando adereços, o React nos permite passar referências de função!
+
+função ContactManager (props) {
+   const [contacts, setContacts] = useState (props.data);
+  função addPerson (nome) {
+     setContacts ([... contatos, nome]);
+  }
+   return (
+     <div>
+       <AddPersonForm **handleSubmit = {addPerson}** />
+       <PeopleList data = {contacts} />
+     </div>
+   );
+}
+
+**JSX**
+
+Semelhante a passar a lista de contatos para nosso componente PeopleList, passamos a
+
+função
+
+**addPerson**
+
+() para nosso AddPersonForm usando um prop chamado
+
+**handleSubmit**
+
+.
+
+Agora, nossa PeopleList pode chamar a função **handleSubmit** que recebeu quando o formulário foi enviado, para adicionar uma nova pessoa à lista:
+
+function AddPersonForm (props) {
+   const [person, setPerson] = useState ('');
+  função handleChange (e) {
+     setPerson (e.target.value);
+  }
+ **function handleSubmit (e) {
+     props.handleSubmit (pessoa);
+    setPerson ('');
+    e.preventDefault ();
+  }**   return (
+     <form onSubmit = {handleSubmit}>
+       <input type = "text" 
+         placeholder = "Adicionar novo contato" 
+         onChange = {handleChange} 
+         value = {person} />
+       <button type = "submit"> Adicionar </button>
+     </form>
+   );
+}
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-contact-manager-3?file)**
+
+Também **limpamos** o valor do campo de texto usando **setPerson ('')** após adicionar uma nova pessoa.
