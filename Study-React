@@ -846,3 +846,68 @@ const listItems = arr.map ((val, index) =>
 JSX
 Experimente no StackBlitz
 As chaves são importantes porque identificam os elementos de maneira única, ajudando o React a entender quais itens foram alterados, adicionados ou removidos.
+
+# **Gerente de contato**
+
+Agora que sabemos como criar componentes, passar dados para eles usando props e gerenciar seus dados usando estado, vamos começar a construir nosso
+
+**Contact Manager**
+
+.
+
+Nosso Contact Manager permitirá visualizar a lista de contatos e adicionar novos à lista. Olhando para a maquete, faz sentido ter dois componentes: **AddPersonForm** : um formulário com o campo de texto e o botão Adicionar. **PeopleList** : uma lista de contatos. Vamos criar esses componentes. **AddPersonForm** usa o estado para gerenciar o valor do campo de texto:
+
+[https://api.sololearn.com/DownloadFile?id=4390](https://api.sololearn.com/DownloadFile?id=4390)
+
+function AddPersonForm () {
+   const [person, setPerson] = useState ("");
+  função handleChange (e) {
+     setPerson (e.target.value);
+  }
+   function handleSubmit (e) {
+     e.preventDefault ();
+  }
+   return (
+     <form onSubmit = {handleSubmit}>
+     <input type = "text" 
+     placeholder = "Adicionar novo contato" 
+     onChange = {handleChange} 
+     value = {person} />
+     <button type = "submit"> Adicionar </button>
+     </form>
+     );
+}
+
+**JSX**
+
+Por enquanto, apenas evitamos o comportamento padrão quando o formulário é enviado.
+
+**PeopleList** recebeu uma matriz que representa os contatos e renderiza uma lista na página:
+
+função PeopleList (adereços) {
+   const arr = props.data;
+  const listItems = arr.map ((val, index) =>
+     <li key = {index}> {val} </li>
+   );
+  return <ul> {listItems} </ul>;
+}
+
+**JSX**
+
+Agora podemos renderizar nossos componentes na página e incluir alguns dados iniciais:
+
+contatos const = ["James Smith", "Thomas Anderson", "Bruce Wayne"];
+const el = (
+   <div>
+     <AddPersonForm />
+     <PeopleList data = {contacts} />
+   </div>
+ );
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-contact-manager-1?file)**
+
+Toque em **Experimente no StackBlitz** para ver o resultado.
+
+Adicionar um novo contato não funciona, pois ainda não construímos a lógica na função **handleSubmit** .
