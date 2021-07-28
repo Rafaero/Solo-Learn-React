@@ -1394,3 +1394,154 @@ fornecido
 Também fornecemos um valor padrão para nosso estado usando a variável **initialState** .
 
 Nada extravagante até agora, apenas criamos duas funções simples, uma retornando nosso objeto de ação, a outra retornando um novo estado com a contagem incrementada.
+
+# **Criando a Loja**
+
+Para criar a loja, chamamos a
+
+função
+
+**createStore ()**
+
+, que leva o redutor como parâmetro:
+
+const store = **createStore (redutor)** ;
+
+**JSX**
+
+Mas como passamos a loja para nossos componentes?
+
+Isso é obtido usando um
+
+elemento
+
+**<Provider>**
+
+especial
+
+. Ele disponibiliza o armazenamento para qualquer componente filho aninhado.
+
+Portanto, para nosso contador, teríamos o seguinte:
+
+const el = **<Provider store = {store}>**     <Counter />
+ **</Provider>** ;
+
+**JSX**
+
+**O provedor**
+
+pega o armazenamento como um atributo e o disponibiliza para seu componente filho.
+
+Precisamos importar {createStore} e {Provider} usando a seguinte sintaxe:**import {Provider} from 'react-redux';import {createStore} de 'redux';**
+
+# **Conectando-se à Loja**
+
+Neste ponto, criamos nossa
+
+**ação**
+
+, o
+
+**redutor**
+
+, a
+
+**loja**
+
+e disponibilizamos para nosso componente Contador usando o
+
+elemento
+
+**Provedor**
+
+.
+
+Para conectar nosso componente à loja, precisamos chamar a função **connect ()** . A função **connect ()** retorna um novo componente, que envolve o componente que você passou para ele e o conecta à loja usando suas funções de parâmetro especiais.
+
+function connect (mapStateToProps ?, mapDispatchToProps?)
+
+**JS**
+
+connect () usa dois parâmetros opcionais:
+
+**mapStateToProps** Esta função é chamada sempre que o estado de armazenamento muda. Ele recebe o estado como um parâmetro e retorna o estado do componente. Por exemplo, para nosso contador, precisamos retornar a variável de estado de **contagem** :
+
+função mapStateToProps (state) {
+   return {
+     count: state.count
+   };
+}
+
+**JSX**
+
+Agora, nosso componente pode acessar a
+
+variável de
+
+**contagem**
+
+usando seus
+
+**adereços**
+
+! Assim como o nome da função indica, ele mapeia o estado para os adereços.
+
+**mapDispatchToProps** Como você deve ter adivinhado pelo nome, este parâmetro é usado para mapear as funções de despacho para adereços. Pode ser um objeto simples, definindo a função que precisa ser mapeada:
+
+const mapDispatchToProps = {
+   incrementCounter
+ }
+
+**JSX**
+
+Isso pode parecer um pouco confuso, mas é muito simples:
+
+**mapStateToProps**
+
+simplesmente retorna as variáveis de estado como props para nosso componente, enquanto
+
+**mapDispatchToProps**
+
+permite definir como despachamos ações e disponibilizamos as funções de despacho como props.
+
+Ambos são opcionais, pois, por exemplo, seu componente pode precisar apenas ler da loja.
+
+**mapDispatchToProps** também pode ser definido como uma função. Dê uma olhada na [documentação oficial](https://react-redux.js.org/using-react-redux/connect-mapdispatch) para mais detalhes.Observe que precisamos importar a função de **conexão** : **import {conectar} de 'react-redux';**
+
+# **Acessando a Loja**
+
+Dentro de nosso componente, apenas acessamos as propriedades da loja usando
+
+**adereços**
+
+contador de função (props) {
+   function handleClick () {
+ **props.incrementCounter (1);**   }
+     return <div>
+     <p> { **props.count** } </p>
+     <button onClick = {handleClick}> Incremento </button>
+     </div>;
+}
+
+**JSX**
+
+Observe que passamos
+
+**1**
+
+como o argumento para nosso incrementoContador (), fazendo com que nosso contador aumente em 1. Podemos alterar o valor para qualquer outro número, e nosso contador se comportará como esperado, porque tratamos do parâmetro de incremento em nosso redutor.
+
+Agora, a única coisa que resta é chamar a função connect () para nosso componente Contador e renderizá-lo na página:
+
+Const Contador = conectar (mapStateToProps, mapDispatchToProps) (Contador);
+const el = <Provider store = {store}>
+           <Counter />
+         </Provider>;
+
+**JSX**
+
+**[Experimente no StackBlitz](https://stackblitz.com/edit/react-redux-counter-example-1?file)**
+
+Lembre-se, **connect ()** retorna um novo componente, que envolve o componente recebido.
+
+Agora temos um aplicativo React + Redux totalmente funcional!Isso pode parecer muito código para um aplicativo de contador simples, no entanto, essa arquitetura é ótima ao construir aplicativos de grande escala, que usam muitos componentes, vários níveis de aninhamento e gerenciam muitos dados.
