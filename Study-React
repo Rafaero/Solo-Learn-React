@@ -1260,3 +1260,137 @@ Para usá-lo com o React, precisamos instalar outra biblioteca, chamada
 npm install react-redux
 
 A biblioteca **react-redux** liga o React ao Redux, permitindo que os componentes do React leiam dados de um armazenamento Redux e despachem ações para o armazenamento para atualizar os dados.
+
+# **App de contador**
+
+Como nosso primeiro exemplo, vamos construir o
+
+**[aplicativo Counter](https://stackblitz.com/edit/react-hooks-counter-example?file)**
+
+que fizemos no módulo anterior usando Redux!
+
+Primeiro, precisamos criar nossa **ação** e **redutor** correspondente .
+
+function incrementCounter (num) {
+   return { 
+     type: 'INCREMENT', 
+     num: num 
+   }
+ }
+
+**JS**
+
+O código acima declara uma função criadora de ação chamada
+
+**incrementCounter ()**
+
+, que retorna uma ação do tipo INCREMENT e a carga correspondente.
+
+**Nosso redutor:**
+
+const initialState = {
+   contagem: 0
+ };
+redutor de função (estado = estado inicial, ação) {
+   switch (ação.tipo) {
+     caso 'INCREMENTO':
+       retornar {contagem: estado.contagem + ação.num};
+    padrão:
+       estado de retorno;
+  }
+ }
+
+**JS**
+
+O código acima define uma
+
+função
+
+**redutora**
+
+, que retorna o novo estado com base na ação dada. Nós incrementamos a
+
+variável de estado de
+
+**contagem**
+
+pelo
+
+valor
+
+**num**
+
+fornecido
+
+.
+
+Também fornecemos um valor padrão para nosso estado usando a variável **initialState** .
+
+Nada extravagante até agora, apenas criamos duas funções simples, uma retornando nosso objeto de ação, a outra retornando um novo estado com a contagem incrementada.
+
+# **App de contador**
+
+Como nosso primeiro exemplo, vamos construir o
+
+**[aplicativo Counter](https://stackblitz.com/edit/react-hooks-counter-example?file)**
+
+que fizemos no módulo anterior usando Redux!
+
+Primeiro, precisamos criar nossa **ação** e **redutor** correspondente .
+
+function incrementCounter (num) {
+   return { 
+     type: 'INCREMENT', 
+     num: num 
+   }
+ }
+
+**JS**
+
+O código acima declara uma função criadora de ação chamada
+
+**incrementCounter ()**
+
+, que retorna uma ação do tipo INCREMENT e a carga correspondente.
+
+**Nosso redutor:**
+
+const initialState = {
+   contagem: 0
+ };
+redutor de função (estado = estado inicial, ação) {
+   switch (ação.tipo) {
+     caso 'INCREMENTO':
+       retornar {contagem: estado.contagem + ação.num};
+    padrão:
+       estado de retorno;
+  }
+ }
+
+**JS**
+
+O código acima define uma
+
+função
+
+**redutora**
+
+, que retorna o novo estado com base na ação dada. Nós incrementamos a
+
+variável de estado de
+
+**contagem**
+
+pelo
+
+valor
+
+**num**
+
+fornecido
+
+.
+
+Também fornecemos um valor padrão para nosso estado usando a variável **initialState** .
+
+Nada extravagante até agora, apenas criamos duas funções simples, uma retornando nosso objeto de ação, a outra retornando um novo estado com a contagem incrementada.
