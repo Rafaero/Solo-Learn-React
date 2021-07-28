@@ -1217,3 +1217,46 @@ e usa-o como a carga útil das ações.
 Agora, podemos usar o criador da ação para criar vários novos contatos, passando os dados correspondentes.
 
 Os criadores de ação não são integrados à biblioteca Redux por padrão. É um padrão que foi implementado para criar código que reflete uma abordagem mais **DRY** (Don't Repeat Yourself).
+
+# **Redutores múltiplos**
+
+Se você tiver mais de uma entidade (ou seja, usuários, produtos, faturas, pedidos, etc.), normalmente é uma boa ideia dividi-los em várias funções redutoras para separar os interesses.
+
+Redux nos dá um método que podemos usar chamado **combineReducers** . Isso nos permite usar mais de um redutor para que, quando uma ação for despachada, a ação seja executada por todos os redutores em vez de apenas um. Também nos permite separar as preocupações de nosso estado de armazenamento. **Por exemplo:**
+
+const contactsApp = **combineReducers** ({
+   addContacts,
+   doSomething
+ })
+
+**JS**
+
+Agora, nosso
+
+**contactsApp**
+
+está combinando dois redutores em um.
+
+É uma boa prática fornecer a cada redutor apenas a parte do estado que ele precisa gerenciar. Isso é chamado de **composição de redutor** e é um padrão fundamental de construção de aplicativos Redux.
+
+# **Redux com React**
+
+Agora que sabemos o que é Redux, podemos começar a construir aplicativos React que usem Redux!
+
+Primeiro, precisamos instalar o Redux:
+
+npm install redux
+
+Isso instalará a biblioteca Redux.
+
+No entanto, o próprio Redux é apenas uma pequena biblioteca, que pode ser usada com diferentes tecnologias.
+
+Para usá-lo com o React, precisamos instalar outra biblioteca, chamada
+
+**react-redux**
+
+:
+
+npm install react-redux
+
+A biblioteca **react-redux** liga o React ao Redux, permitindo que os componentes do React leiam dados de um armazenamento Redux e despachem ações para o armazenamento para atualizar os dados.
