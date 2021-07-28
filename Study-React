@@ -1134,3 +1134,86 @@ O estado global do aplicativo é armazenado em um único . Você pode alterar 
 **Fonte única de**
 
 **armazenamento da verdade O estado é de ações somente leitura. Redutores puros, puros**
+
+# **Ações**
+
+**A ação**
+
+pode ser vista como cargas úteis de informações que enviam dados para a loja.
+
+As ações são representadas por um objeto JavaScript simples e precisam ter uma
+
+propriedade
+
+**type**
+
+:
+
+{
+ **tipo: 'ADD_CONTACT',**   nome: 'James'
+ }
+
+**JS**
+
+No exemplo acima, definimos uma ação com o tipo
+
+**ADD_CONTACT**
+
+e fornecemos a ela uma
+
+propriedade de
+
+**nome**
+
+como sua carga útil.
+
+Observe que, para o **tipo** , estamos usando todas as letras maiúsculas e palavras separadas por sublinhados. Isso também é chamado de "estojo de cobra". Essa é a maneira geralmente aceita de criar um **tipo de ação** .
+
+Você pode usar qualquer nomenclatura e estrutura para as outras propriedades que definem os dados na ação.
+
+Você pode, por exemplo, chamá-lo de **carga útil** e fornecer a ele um objeto com os dados:
+
+{
+     tipo: 'ADD_CONTACT',
+ **carga útil: {
+         nome: "Jimmy Barnes"
+     }** }
+
+**JS**
+
+Você deve passar o mínimo de dados possível em cada ação. Isso mantém as ações limpas e fáceis de ler.
+
+# **Criadores de ação**
+
+Para usar a mesma ação com diferentes cargas úteis, bem como criar código reutilizável, podemos criar
+
+**criadores de ação**
+
+.
+
+**Os criadores de ações**
+
+são funções simples que retornam ações.
+
+**Por exemplo:**
+
+function addContact (person) {
+   return {
+     type: 'ADD_CONTACT',
+     payload: person
+   }
+ }
+
+**JS**
+
+A função de criador de ação pega um
+
+parâmetro de
+
+**pessoa**
+
+e usa-o como a carga útil das ações.
+
+Agora, podemos usar o criador da ação para criar vários novos contatos, passando os dados correspondentes.
+
+Os criadores de ação não são integrados à biblioteca Redux por padrão. É um padrão que foi implementado para criar código que reflete uma abordagem mais **DRY** (Don't Repeat Yourself).
