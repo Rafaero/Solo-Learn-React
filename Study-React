@@ -1,5 +1,4 @@
 # **O que é desenvolvimento front-end?***
-
 **O desenvolvimento de front-end**
 
 refere-se ao que o usuário final (também comumente referido como "
@@ -686,7 +685,7 @@ A única diferença é que os nomes dos eventos usam a sintaxe camelCase e o man
 <button **onClick = {handleClick}** >
    Meu botão
  </button>
-
+-----------------------------------------------------
 **JSX**
 
 Clicar no botão irá chamar a
